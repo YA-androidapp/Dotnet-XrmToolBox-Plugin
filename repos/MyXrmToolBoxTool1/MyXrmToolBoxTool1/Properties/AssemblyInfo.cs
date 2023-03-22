@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("MyXrmToolBoxTool1")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("My First Plugin")]
+[assembly: AssemblyDescription("This is a description for my first plugin")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("MyXrmToolBoxTool1")]
-[assembly: AssemblyCopyright("Copyright ©  2023")]
+[assembly: AssemblyCompany("YA-androidapp")]
+[assembly: AssemblyProduct("My First Plugin")]
+[assembly: AssemblyCopyright("Copyright © 2023 YA-androidapp")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
