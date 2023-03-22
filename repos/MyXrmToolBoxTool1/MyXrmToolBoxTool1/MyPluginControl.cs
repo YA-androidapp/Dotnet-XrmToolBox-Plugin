@@ -1,4 +1,5 @@
 ﻿using McTools.Xrm.Connection;
+using Microsoft.Crm.Sdk.Messages;
 using Microsoft.Xrm.Sdk;
 using Microsoft.Xrm.Sdk.Query;
 using System;
@@ -102,6 +103,48 @@ namespace MyXrmToolBoxTool1
                 mySettings.LastUsedOrganizationWebappUrl = detail.WebApplicationUrl;
                 LogInfo("Connection has changed to: {0}", detail.WebApplicationUrl);
             }
+        }
+
+        /// WhoAmI
+
+        private void WhoAmI()
+        {
+            WorkAsync(new WorkAsyncInfo
+            {
+                // 処理中に表示されるメッセージ
+                Message = "Retrieving WhoAmI Information",
+
+                // 非同期的に実行されるMay'ntask
+                Work = (worker, args) =>
+                {
+                    // WhoAmIRequestを作成
+                    var whoAmIResponse = (WhoAmIResponse)Service.Execute(new WhoAmIRequest());
+
+                    // カレントユーザーの詳細を取得
+                    var user = Service.Retrieve("systemuser", whoAmIResponse.UserId, new Microsoft.Xrm.Sdk.Query.ColumnSet(true));
+
+                    // PostWorkCallBackに送られるリストを作成
+                    var userData = new List<string>();
+                    foreach (var data in user.Attributes)
+                        userData.Add($"{data.Key} : {data.Value}");
+                    args.Result = userData;
+                },
+
+                // 処理完了時
+                PostWorkCallBack = (args) =>
+                {
+                    if (args.Error != null)
+                        MessageBox.Show(args.Error.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    else
+                        // リストボックスに結果をバインド
+                        listBoxUserInfo.DataSource = args.Result;
+                }
+            });
+        }
+
+        private void buttonWhoAmI_Click(object sender, EventArgs e)
+        {
+            ExecuteMethod(WhoAmI);
         }
     }
 }
