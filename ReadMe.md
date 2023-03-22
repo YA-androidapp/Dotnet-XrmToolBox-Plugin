@@ -61,6 +61,32 @@ XrmToolBox Plugin Projectを作る手順
 
 6. サードパーティ製のライブラリを利用する場合は、 [ILMerge](https://www.nuget.org/packages/MSBuild.ILMerge.Task/) を使ってツールとその依存関係を1つのファイルにまとめる
 
+## [Add a settings file](https://www.xrmtoolbox.com/documentation/for-developers/add-a-settings-file/)
+
+1. `Settings` クラスを追加（XrmToolBox Plugin Project Templateには既定で存在）
+
+```cs
+public class Settings
+{
+    public string Var1 { get; set; }
+    public bool Var2 { get; set; }
+}
+```
+
+2. 読み書き
+
+```cs
+if (!SettingsManager.Instance.TryLoad(GetType(), out mySettings))
+{
+    mySettings = new Settings();
+}
+
+LogInfo("LastUsedOrganizationWebappUrl: {0}", mySettings.LastUsedOrganizationWebappUrl);
+
+SettingsManager.Instance.Save(GetType(), mySettings);
+SettingsManager.Instance.Save(typeof(SampleTool), mySettings, ConnectionDetail.ConnectionId.ToString());
+```
+
 ## [Debug your tool](https://www.xrmtoolbox.com/documentation/for-developers/debug/)
 
 1. ビルドイベント設定の `post-build event` を定義
