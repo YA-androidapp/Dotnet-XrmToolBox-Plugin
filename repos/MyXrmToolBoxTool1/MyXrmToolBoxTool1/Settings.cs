@@ -15,5 +15,8 @@ namespace MyXrmToolBoxTool1
     public class Settings
     {
         public string LastUsedOrganizationWebappUrl { get; set; }
+
+        public string Var1 { get; set; }
+        public bool Var2 { get; set; }
     }
 }
