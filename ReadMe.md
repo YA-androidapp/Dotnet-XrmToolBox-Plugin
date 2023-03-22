@@ -61,9 +61,34 @@ XrmToolBox Plugin Projectを作る手順
 
 6. サードパーティ製のライブラリを利用する場合は、 [ILMerge](https://www.nuget.org/packages/MSBuild.ILMerge.Task/) を使ってツールとその依存関係を1つのファイルにまとめる
 
+## [Debug your tool](https://www.xrmtoolbox.com/documentation/for-developers/debug/)
+
+1. ビルドイベント設定の `post-build event` を定義
+
+```powershell
+IF $(ConfigurationName) == Debug (
+      IF NOT EXIST Plugins mkdir Plugins
+      xcopy "$(TargetDir)$(TargetFileName)" "$(TargetDir)Plugins\" /Y
+      xcopy "$(TargetDir)$(TargetName).pdb" "$(TargetDir)Plugins\" /Y
+      )
+
+# IF NOT EXIST Plugins mkdir Plugins
+# move /Y $(TargetFileName) Plugins
+```
+
+2. デバッグ設定の `external program` `Command line arguments` を定義
+
+```
+# external program
+...\bin\Debug\XrmToolBox.exe
+
+# Command line arguments
+/overridepath:.
+```
+
 ## [Deploy your tool in Tool Library](https://www.xrmtoolbox.com/documentation/for-developers/deploy-your-plugin-in-plugins-store/)
 
-1. 
+1.
 
 ---
 
