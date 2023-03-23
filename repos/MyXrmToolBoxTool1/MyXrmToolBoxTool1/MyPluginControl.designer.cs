@@ -48,7 +48,7 @@
             this.toolStripMenu.Location = new System.Drawing.Point(0, 0);
             this.toolStripMenu.Name = "toolStripMenu";
             this.toolStripMenu.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
-            this.toolStripMenu.Size = new System.Drawing.Size(746, 27);
+            this.toolStripMenu.Size = new System.Drawing.Size(746, 31);
             this.toolStripMenu.TabIndex = 4;
             this.toolStripMenu.Text = "toolStrip1";
             // 
@@ -56,20 +56,20 @@
             // 
             this.tsbClose.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.tsbClose.Name = "tsbClose";
-            this.tsbClose.Size = new System.Drawing.Size(107, 24);
+            this.tsbClose.Size = new System.Drawing.Size(107, 28);
             this.tsbClose.Text = "Close this tool";
             this.tsbClose.Click += new System.EventHandler(this.tsbClose_Click);
             // 
             // tssSeparator1
             // 
             this.tssSeparator1.Name = "tssSeparator1";
-            this.tssSeparator1.Size = new System.Drawing.Size(6, 27);
+            this.tssSeparator1.Size = new System.Drawing.Size(6, 31);
             // 
             // tsbSample
             // 
             this.tsbSample.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.tsbSample.Name = "tsbSample";
-            this.tsbSample.Size = new System.Drawing.Size(56, 24);
+            this.tsbSample.Size = new System.Drawing.Size(56, 28);
             this.tsbSample.Text = "Try me";
             this.tsbSample.Click += new System.EventHandler(this.tsbSample_Click);
             // 
@@ -85,6 +85,9 @@
             // 
             // listBoxUserInfo
             // 
+            this.listBoxUserInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.listBoxUserInfo.FormattingEnabled = true;
             this.listBoxUserInfo.ItemHeight = 15;
             this.listBoxUserInfo.Location = new System.Drawing.Point(3, 59);

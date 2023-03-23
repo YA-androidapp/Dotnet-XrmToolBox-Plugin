@@ -164,7 +164,28 @@ IF $(ConfigurationName) == Debug (
 
 ## [Deploy your tool in Tool Library](https://www.xrmtoolbox.com/documentation/for-developers/deploy-your-plugin-in-plugins-store/)
 
-1.
+1. [Tool validation check list](https://www.xrmtoolbox.com/documentation/for-developers/deploy-your-plugin-in-plugins-store/plugin-validation-check-list/) をチェック
+
+### [Create a Nuget package](https://www.xrmtoolbox.com/documentation/for-developers/deploy-your-plugin-in-plugins-store/#:~:text=to%20be%20validated-,Create%20a%20Nuget%20package,-There%20is%20many)
+
+Microsoft Store から [Nuget Package Explorer](https://www.microsoft.com/fr-fr/store/p/nuget-package-explorer/9wzdncrdmdm3) をインストールしてNuGetパッケージを作成する
+
+2. Nuget Package Explorer で「新しいパッケージを作成」
+3. DLL と `ReadMe.md` をパッケージコンテンツに追加（ ReadMe は `content` フォルダを作成してその中に追加）
+4. `Edit Metadata` メニューを実行
+
+| 項目                  | 内容                                                                        |
+| --------------------- | --------------------------------------------------------------------------- |
+| Id                    | ツールアセンブリの名前                                                      |
+| Version               | バージョン                                                                  |
+| Title                 | ツール名                                                                    |
+| Authors               | 作者名                                                                      |
+| Icon                  | ツールライブラリに表示するアイコンの **URL**                                |
+| ReadMe                | ReadMeファイルの **パス** （ `content\ReadMe.md` をドロップダウンから選択） |
+| Project Url           | オープンソースプロジェクトのURL                                             |
+| Summary / Description | ツールの説明                                                                |
+| Release Notes         | 更新情報                                                                    |
+| Tags                  | タグ（ `XrmToolBox` を含める）                                              |
 
 ---
 
